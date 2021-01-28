@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+    <title>Deepak Khemraj</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+
+
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+</head>
+
+
+<style>
+    html,
+    body {
+        margin: 0 !important;
+        font-family: 'Ubuntu', sans-serif;
+
+
+    }
+
+    #sidebar {
+        background-color: #8797B2;
+        transition: all 0.5s ease;
+        height: 100vh;
+
+    }
+
+    #sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+
+
+
+
+    #main {
+        background-color: #4D9DE0;
+
+    }
+
+    #main,
+    #sidebar {
+        z-index: 100;
+    }
+
+
+    .headline {
+        color: #3f51b5;
+    }
+
+    .title {
+        color: white;
+        font-weight: bold;
+    }
+
+    img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+
+    #profilePic {
+        max-height: 350px !important;
+        max-width: 150px !important;
+        border-radius: 300px;
+    }
+
+    .centered {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #about {
+        min-height: 100vh;
+    }
+
+    .carousel-item img {
+        max-width: 100%;
+        max-height: 100%;
+
+    }
+
+    .carousel-item {
+        max-width: 500px;
+        max-height: 400px;
+    }
+
+
+    .carousel-control-prev-icon {
+        background-color: #0092e4;
+    }
+
+    .carousel-control-next-icon {
+        background-color: #0092e4;
+    }
+
+    video {
+        max-width: 100%;
+    }
+
+    .links {
+        text-align: center;
+        color: white;
+
+
+    }
+
+    .link {
+        margin-bottom: 10px;
+        border-bottom: 4px solid navy;
+        font-size: 2em;
+    }
+
+    .link:hover {
+        transition: all .2s ease-in-out;
+
+        transform: scale(1.2);
+    }
+
+    #about,
+    #projects,
+    #contact {
+        display: none;
+    }
+
+    #menuContainer {
+        position: fixed;
+        z-index: 1000;
+        border: 2px solid darkgray;
+        background-color: white;
+        padding: 5px;
+
+    }
+
+    .hamburgerLine {
+        width: 35px;
+        height: 5px;
+        background-color: navy;
+        margin: 6px 0;
+
+    }
+
+    @media screen and (min-width: 768px) {
+        #menuContainer {
+            visibility: hidden;
+        }
+
+    }
+
+
+
+    .pop img {
+        border: 2px solid darkgray;
+        padding: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .pop img:hover {
+        cursor: pointer;
+    }
+
+    .modal-body {
+        border: none !important;
+        text-align: center;
+    }
+
+    .modal-body img {
+        border: none !important;
+    }
+
+    .modal-dialog {
+        max-width: 70vw;
+    }
+
+    .jumbotron {
+        padding-bottom: 0; 
+    }
+</style>
+
+<body>
+
+
+
+
+    <div class="container-fuid">
+
+
+
+
+
+
+
+
+        <div id="sidebar" class="pt-5 col-10 col-sm-6 col-md-3 d-none d-md-block position-fixed">
+
+
+
+            <div id="innerSidebar">
+                <div class="links mb-4">
+                    <a id="portfolioLink" class="link">Portfolio</a>
+                    <br>
+                    <a id="aboutLink" class="link">About</a>
+                    <br>
+                    <a id="contactLink" class="link">Contact</a>
+                    <br>
+
+
+
+                </div>
+
+
+                <div class="card card-cascade wider">
+
+                    <div class="view view-cascade">
+                        <img src="profile.jpg" alt="profile" class="card-img-top centered" id="profilePic">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <div class="card-body card-body-cascade text-center">
+                        <h3 class="card-title"><strong>Deepak Khemraj</strong></h3>
+                        <h5 class="indigo-text"><strong>Full-Stack Developer</strong></h5>
+
+                        <p class="card-text">
+                            I'm passionate about interactive and data intensive web applications.
+                        </p>
+
+
+                        <form target="_blank">
+                            <button type="submit" formaction="https://github.com/drk3931" class="btn btn-git"><i
+                                    class="fa fa-github left"></i> Github</button>
+
+                            <button style="color:black; background-color: white; text-transform: none;"
+                                formaction="https://www.linkedin.com/in/deepak-khemraj-13a02a138/" type="submit"
+                                class="btn btn-li"> Linked <i class="fa fa-linkedin"></i></button>
+
+                            <button style="color:white; background-color: white"
+                                formaction="./res_deepak_khemraj.pdf" type="submit" class="btn btn-li"> <a
+                                    style="color:black">Resume</a></button>
+
+
+                        </form>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <div id="about" class="col-9">
+            <div class="p-5">
+                <div class="headline">
+                    <h1>Welcome</h1>
+                </div>
+                <p> My name is Deepak. I love working on interactive and data intensive web apps. I have recently
+                    acquired my degree
+                    in computer science and am eager to pursue opportunities in full-stack web development. I have
+                    previously worked
+                    at a startup and a tech incubator where I have coordinated with my team and clients to deliver
+                    solutions
+                    to a broad range of problems such as porting a research sim from a desktop GUI to a webapp,
+                    implementing
+                    calendar
+                    booking software, creating an interactive user dashboard for project managers, and more. I am
+                    always willing to tackle problems
+                    at any level of the stack and create solutions that are concise, scalable, and unobtrusive to the
+                    user and codebase.
+
+                </p>
+
+                <p>
+                    In my free time I pursue topics such as game development,
+                    computational finance, and natural language processing.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="contact" class="col-9">
+            <div class="p-5">
+                <div class="headline">
+                    <h1>Contact Info</h1>
+                </div>
+                <p>Feel free to reach out to me at <a href="mailto:drk3931@gmail.com">drk3931@gmail.com</a> for work
+                    related inquiries.</p>
+
+            </div>
+
+        </div>
+
+        <div id="projects" class="col-9">
+            <div class="headline">
+                <br><br>
+                <h1 class="text-center">What I've Been Up To</h1>
+            </div>
+
+
+
+
+
+
+
+            <div class="jumbotron">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="display-5">Reddit Real-Time Stocks</h2>
+                        <h6 class="display-5"></h6>
+                        <p class="lead"></p>
+                        <hr class="my-4">
+                        <p> This dashboard streams thousands of new comments every hour from investing and finance subreddits to a Flask server. Data is
+                            preprocessed with regex and NLTK for stocks tickers, news, and other activity with results streamed over websocket
+                            to a React dashboard. 
+                        </p>
+
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="pop">
+
+                            <img src="stream.PNG">
+                        </div>
+
+                        <p>
+                            <i><small>
+                                    The above image and description are for information purposes only and is NOT financial advice. Seek a licensed
+                                    professional for financial advice.
+                                </small></i>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="jumbotron">
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h2 class="display-5">Leaf - Hack Brooklyn Winner</h2>
+                        <h6 class="display-5"></h6>
+                        <p class="lead"></p>
+                        <hr class="my-4">
+                        <p>Our team created ​Leaf​, a mobile app inspired by the COVID crisis that allows users
+                            to
+                            donate food, clothing, and
+                            other essentials with real time SMS alerts to nearby users in need. I implemented
+                            user registration,
+                            geolocation, token auth, and automated SMS with NodeJS, Twilio, and Heroku. </p>
+                        <a class="btn btn-primary btn-lg" target="_blank"
+                            href="https://devpost.com/software/leaf-ne9dsp" role="button">Check it Out</a>
+
+                    </div>
+
+
+
+
+                    <div id="leafGallery" class="carousel slide col-md-6 col-sm-12" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active pop">
+                                <img src="leafAnim.gif" class="d-block w-100" alt="leafAnim.gif">
+                            </div>
+                            <div class="carousel-item pop">
+                                <img src="leaf1.jpg" class="d-block w-100" alt="leaf2.jpg">
+                            </div>
+
+                            <div class="carousel-item pop">
+                                <img src="leaf3.jpg" class="d-block w-100" alt="leaf3.jpg">
+                            </div>
+                            <div class="carousel-item pop">
+                                <img src="leaf4.jpg" class="d-block w-100" alt="leaf4.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div class="jumbotron">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="display-5">Game Engine Development</h2>
+                        <p class="lead"></p>
+                        <hr class="my-4">
+                        <p>Built from the ground up using Java, OpenGL, and LibGDX, my platformer game engine
+                            supports collision detection, map parsing, and entity management. I learned a
+                            ton about
+                            computer graphics and design patterns needed to support lots of application state.
+                        </p>
+                        <a class="btn btn-primary btn-lg" target="_blank" href="https://drk3931.github.io/Platypus2D"
+                            role="button">Demo
+                            level</a>
+                    </div>
+                    <div class="col-md-6">
+
+                        <video width="500" height="300" autoplay loop muted>
+                            <source src="demo.mp4" type="video/mp4">
+                        </video>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="jumbotron">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="display-5">StockStats Comparison Tool</h2>
+                        <p class="lead"></p>
+                        <hr class="my-4">
+                        <p> This tool prevents different views such as percent change correlation with stock inputs where you can enter tickers and see their relative
+                            performance. Data is provided by Yahoo Finance and the Federal Reserve. Built using Python, Flask, Pandas, Matplotlib and D3.js. 
+                        </p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pop">
+
+                            <img src="stock-stats.png">
+
+                            <p>
+                                <i><small>The above image and description are for information purposes only and is NOT financial advice. Seek a licensed
+                                        professional for financial advice.</small></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="jumbotron">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h2 class="display-5">Queens College Data Viz Hackathon Winner (Best Data Insights)</h2>
+                        <p class="lead"></p>
+                        <hr class="my-4">
+                        <p>Our team created a ​visualization​ that highlights concentrations of accessible parks and
+                            public areas with a lack of nearby subway stations that are also accessible to those
+                            with mobility challenges.</p>
+                        <a></a>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="pop">
+                            <img src="viz.png">
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="jumbotron">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h2 class="display-5">Earth Tracker</h2>
+                        <p class="lead"></p>
+                        <hr class="my-4">
+                        <p>This app pulls temperatures from cities across the planet as needles on a 3D globe. Built
+                            with Java, OpenGL, and OpenWeatherMap.</p>
+                        <a></a>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="pop">
+                            <img src="earthTracker.PNG" alt="eTracker">
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row mx-0">
+
+
+            <div class="col-3 d-none d-md-block"></div>
+
+            <div id="root" class="col-md-9 col-lg-9 col-sm-12">
+
+                <div id="menuContainer">
+                    <div class="hamburgerLine"></div>
+                    <div class="hamburgerLine"></div>
+                    <div class="hamburgerLine"></div>
+
+                </div>
+
+                <div id="rootInner">
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <img src="" class="imagepreview">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+    var root = document.getElementById("rootInner");
+
+    var about = document.getElementById("about");
+    var projects = document.getElementById("projects");
+    var contact = document.getElementById("contact");
+
+    var menuButton = document.getElementById("menuContainer");
+    var sidebar = document.getElementById("sidebar");
+    var toggledMenu = false;
+
+
+    root.innerHTML = projects.innerHTML;
+
+
+    function hideMenu() {
+        toggledMenu = false;
+        sidebar.classList.add("d-none", "d-md-block");
+    }
+
+
+    document.getElementById("aboutLink").addEventListener("click", () => {
+
+        //about.style.display = "block";
+        root.innerHTML = about.innerHTML;
+        hideMenu();
+
+    });
+
+    document.getElementById("portfolioLink").addEventListener("click", () => {
+
+        //about.style.display = "block";
+        root.innerHTML = projects.innerHTML;
+        hideMenu();
+
+
+    });
+
+    document.getElementById("contactLink").addEventListener("click", () => {
+
+        //about.style.display = "block";
+        root.innerHTML = contact.innerHTML;
+        hideMenu();
+
+
+    });
+
+
+
+    menuButton.addEventListener("click", (e) => {
+
+        toggledMenu = !toggledMenu;
+
+        if (toggledMenu) {
+            sidebar.classList.remove("d-none", "d-md-block");
+        }
+        else {
+            sidebar.classList.add("d-none", "d-md-block");
+        }
+
+    });
+
+
+
+    $(function () {
+        $('.pop').on('click', function () {
+            $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+            $('#imagemodal').modal('show');
+        });
+    });
+
+
+
+
+
+</script>
+
+
+
+
+</html>
